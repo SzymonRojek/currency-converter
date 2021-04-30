@@ -11,67 +11,53 @@
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="./css/style.css">
-  <script defer src="./script.js"></script>
+
 </head>
 
 <body>
   <main class="main-container">
     <form class="form">
-      <!-- <h1>Currency Converter</h1> -->
+      <h1>Currency Converter</h1>
       <fieldset class="form__fieldset">
         <legend class="legend">
-          currency converter
+          Get your currency
         </legend>
 
         <ul class="form__list">
           <li>
             <label>
               <span class="form__labelText">
-                Currency I have:
+                GB*
               </span>
-              <select class="form__select js-selectHave" name="currencyHave">
-                <option value="search">search</option>
-                <option value="pl">PL</option>
-                <option value="gbp">GBP</option>
-                <option value="eur">EUR</option>
-              </select>
             </label>
+            <input class="form__amount js-amountTyped" type="number" name="amount" min="1" step="any"
+              placeholder="type amount">
           </li>
           <li>
             <label>
               <span class="form__labelText">
-                I want to exchange:
+                Acctual currency:
               </span>
-              <select class="form__select js-selectWant" name="currencyWant">
-                <option value="search">search</option>
+              <select class="form__select js-select" name="currency">
                 <option value="pl">PL</option>
-                <option value="gbp">GBP</option>
+                <option value="usd">USD</option>
                 <option value="eur">EUR</option>
               </select>
             </label>
           </li>
-          <li>
-            <label>
-              <input class="js-actualisation" value="currency actualisation" readonly>
-            </label>
-          </li>
         </ul>
-        <ul>
-          <li>
-            <label>
-              Amount*:
-              <input class="js-amountTyped" type="number" min="1" value="" placeholder="type amount here">
-            </label>
-          </li>
-          <li>
-            <label>
-              You will receive:
-              <input class="js-amountCounted" type="number" placeholder="" value="0.00">
-            </label>
-          </li>
-        </ul>
+        <p>
+          Got: <strong class="form__result">N/A</strong>
+        </p>
       </fieldset>
-      <button type="reset">reset</button>
+      <ul>
+        <li>
+          <button class="form__button">Get amount</button>
+        </li>
+        <li>
+          <button class="form__button" type="reset">Clean form</button>
+        </li>
+      </ul>
       <p>* fields requaried</p>
     </form>
   </main>
