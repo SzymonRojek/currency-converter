@@ -11,64 +11,74 @@
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="./css/style.css">
-  <script defer src="./script.js"></script>
+  <script defer src="./script.js" type="module"></script>
 </head>
 
 <body>
   <main class="main-container">
     <form class="form">
-      <!-- <h1>Currency Converter</h1> -->
+
       <fieldset class="form__fieldset">
         <legend class="legend">
-          currency converter
+          <h1>Currency Converter</h1>
         </legend>
 
         <ul class="form__list">
           <li>
             <label>
-              <span class="form__labelText">
-                Currency I have:
-              </span>
-              <select class="form__select js-selectHave" name="currencyHave">
-                <option value="search">search</option>
-                <option value="pl">Polish Zloty</option>
-                <option value="gbp">British Pound</option>
-                <option value="eur">Euro</option>
-                <option value="us">US Dollar</option>
-                <option value="rub">Russian Rouble</option>
-                <option value="esp">Spanish Peseta</option>
-                <option value="itl">Italian Lira</option>
-                <option value="dem">German Mark</option>
-                <option value="czk">Czech Koruna</option>
-                <option value="skk">Slovak Koruna</option>
-                <option value="huf">Hungarian Forint</option>
-              </select>
+              <input class="input__actualisation js-actualisation" value="choose curriencies below" readonly>
             </label>
           </li>
           <li>
             <label>
               <span class="form__labelText">
-                I want to exchange:
+                Currency have*:
+              </span>
+              <select class="form__select js-selectHave" name="currencyHave" required>
+                <option value="search">search</option>
+                <option value="all">Albanian Lek</option>
+                <option value="gbp">British Pound</option>
+                <option value="czk">Czech Koruna</option>
+                <option value="dkk">Danish Krone</option>
+                <option value="eur">Euro</option>
+                <option value="dem">German Mark</option>
+                <option value="huf">Hungarian Forint</option>
+                <option value="itl">Italian Lira</option>
+                <option value="pl">Polish Zloty</option>
+                <option value="rub">Russian Rouble</option>
+                <option value="skk">Slovak Koruna</option>
+                <option value="esp">Spanish Peseta</option>
+                <option value="us">US Dollar</option>
+              </select>
+            </label>
+          </li>
+          <li>
+            <label class="switcher__currency">
+              <input class="js-switcherCurrency" type="checkbox" name="toggle-curriences" aria-checked="false" />
+              <div class="switcher__label-circle"></div>
+            </label>
+          </li>
+          <li>
+            <label>
+              <span class="form__labelText">
+                Want to exchange*:
               </span>
               <select class="form__select js-selectWant" name="currencyWant">
                 <option value="search">search</option>
-                <option value="pl">Polish Zloty</option>
+                <option value="all">Albanian Lek</option>
                 <option value="gbp">British Pound</option>
-                <option value="eur">Euro</option>
-                <option value="us">US Dollar</option>
-                <option value="rub">Russian Rouble</option>
-                <option value="esp">Spanish Peseta</option>
-                <option value="itl">Italian Lira</option>
-                <option value="dem">German Mark</option>
                 <option value="czk">Czech Koruna</option>
-                <option value="skk">Slovak Koruna</option>
+                <option value="dkk">Danish Krone</option>
+                <option value="eur">Euro</option>
+                <option value="dem">German Mark</option>
                 <option value="huf">Hungarian Forint</option>
+                <option value="itl">Italian Lira</option>
+                <option value="pl">Polish Zloty</option>
+                <option value="rub">Russian Rouble</option>
+                <option value="skk">Slovak Koruna</option>
+                <option value="esp">Spanish Peseta</option>
+                <option value="us">US Dollar</option>
               </select>
-            </label>
-          </li>
-          <li>
-            <label>
-              <input class="js-actualisation" value="currency actualisation" readonly>
             </label>
           </li>
         </ul>
@@ -76,19 +86,15 @@
           <li>
             <label>
               Amount*:
-              <input class="js-amountTyped" type="number" min="1" step="any" placeholder="type amount here" required>
+              <input class="js-amountTyped" type="number" name="amount" min="1" step="any"
+                placeholder="type amount here" required>
             </label>
           </li>
-          <li>
-            <label>
-              You will receive:
-              <input class="js-amountCounted" type="number" placeholder="" value="0.00">
-            </label>
-          </li>
+          <p>* fields requaried</p>
         </ul>
       </fieldset>
       <button type="reset">reset</button>
-      <p>* fields requaried</p>
+
     </form>
   </main>
 </body>

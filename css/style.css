@@ -10,3 +10,12 @@ html {
 .container {
   max-width: 400px;
 }
+ ul {
+   list-style: none;
+ }
+.input__actualisation {
+  width: 80%;
+  margin-bottom: 50px;
+  padding: 20px;
+  min-height: 20px;
+}
