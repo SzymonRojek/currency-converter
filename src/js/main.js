@@ -1,14 +1,12 @@
 
 
-import currenciesGroup from './curriency-object'; 
+import currenciesGroup from './curriency-object.js'; 
 
 const formElement = document.querySelector('.form');
 const currencyHave = document.querySelector('.js-haveInput')
 const currencyExchange = document.querySelector('.js-exchangeInput');
 const typeAmount = document.querySelector('.js-amountInput');
 let messageActualisation = document.querySelector('.js-actualisationInput');
-
-console.log(messageActualisation);
 
 const getCurrencyHaveObject = currencies => {
   let getCurrenciesToExchange = null;

@@ -70,7 +70,8 @@ html {
       margin-top: 30px;
     }
   }
-  &__selectVisual-select, /*  common styles for select and input number */
+  /*  common styles for select and input number */
+  &__selectVisual-select, 
   &__amountVisual-input {
     background-color: #4d5061;
     box-shadow: 0 10px 25px rgba(0, 0, 0, .5);
@@ -127,6 +128,7 @@ html {
     }
     &-select {
       display: inline-block;
+      min-height: 35px;
       width: 100%;
       color: rgba(255, 255, 255, 0.79);
       cursor: pointer;
@@ -137,7 +139,7 @@ html {
     position: relative;
     max-width: 250px;
     &-input {
-      color: white;
+      min-height: 35px;
       width: 100%;
       color: rgba(255, 255, 255, 0.79);
     }
@@ -210,5 +212,9 @@ select::-ms-expand {
 
 
 
-/* do imput when disable */
+/* 
+do imput when disable 
+zmienne
+
+*/
 
