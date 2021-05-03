@@ -1,6 +1,6 @@
 
 
-import currenciesGroup from './curriency-object.js'; 
+import currenciesGroup from './curriency-object'; 
 
 const formElement = document.querySelector('.form');
 const currencyHave = document.querySelector('.js-haveInput')
