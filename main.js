@@ -39,7 +39,7 @@ function getInputActualisation() {
     }
   
     if ( typedAmountInput.value ) {
-      inputReadonly.value = `${ currencyWant.value }: ${ calculatedCurrencyConverter.toFixed(2) }`;
+      inputReadonly.value = `${ currencyWant.value } : ${ calculatedCurrencyConverter.toFixed(2) }`;
     }     
 }
 

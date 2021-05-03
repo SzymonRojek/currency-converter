@@ -9,57 +9,67 @@ html {
   box-sizing: inherit;
 }
 
-body {
+.body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background-color: #ccc;
+  background-color:#2E86AB;
 }
 
-.main-container {
-  max-width: 400px;
+.container {
   width: 100%;
-  padding: 10px;
-  color: white;
+  max-width: 550px;
   margin: auto;
+  color: rgba(255, 255, 255, 0.762);
 }
 
 .form {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding: 15px;
  background-color: #2E86AB;
 }
 
 .form__heading {
- padding: 40px;
+ padding: 30px;
  font-size: 25px;
  line-height: 1.5;
  letter-spacing: 2px;
  word-spacing: 4px;
+ 
 }
 
 .form__fieldset {
-  margin: 0 15px;
+ background-color: rgb(238, 238, 238);
+ border-radius: 3px;
+ border: none;
 }
 
- .form__list {
-   list-style: none;
-   padding: 10px;
- }
+.form__list {
+  list-style: none;
+  padding: 10px;
+}
 
 .input__actualisation {
   margin-bottom: 50px;
   padding: 20px;
   min-height: 20px;
-  width: 100%;
+  min-width: 250px;
+  font-size: 20px;
   outline: none;
   border: none;
+  background-color: #c4d6e1;
+  color: rgba(48, 44, 44, 0.79);
 }
 
 .form__labelText {
   display: inline-block;
   padding-bottom: 15px;
-  font-size: 18px;
+  font-size: 15px;
   letter-spacing: 1px;
   word-spacing: 3px;
+  color: #2E86AB;
 }
 
 .form__labelText--middle {
@@ -67,7 +77,7 @@ body {
 }
 
 /*  style for select and input number */
-.form__amount,
+.form__amount-input,
 .form__select {
   background-color: #4d5061;
   box-shadow: 0 10px 25px rgba(0, 0, 0, .5);
@@ -79,11 +89,11 @@ body {
   -moz-appearance: none;
   -ms-appearance: none;
   outline: none;
+  font-size: 13px;
 }
 .form__select {
   display: inline-block;
   width: 100%;
-  
   color: rgba(255, 255, 255, 0.79);
   cursor: pointer;
 }
@@ -129,10 +139,8 @@ select::-ms-expand {
   border-top: var(--size) solid #fff;
 }
 
-
-
 .form__select:focus  + .focus,
-.form__amount:focus  + .focus {
+.form__amount-input:focus  + .focus {
   position: absolute;
   top: -1px;
   left: -1px;
@@ -145,8 +153,10 @@ select::-ms-expand {
 }
 
 
+.form__labelText--last {
+  margin-top: 30px;
+}
 /* hide arrows input numbers */
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   margin: 0;
@@ -157,21 +167,68 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.form__labelText--last {
-  margin-top: 30px;
-}
-
-.custom-amount {
+.form__amount {
   position: relative;
   max-width: 250px;
 }
-.form__amount {
+.form__amount-input {
   color: white;
   width: 100%;
+  color: rgba(255, 255, 255, 0.79);
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.79);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.79);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(255, 255, 255, 0.79);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color:rgba(255, 255, 255, 0.79);
 }
 
 .form__paragraph {
   font-size: 10px;
   letter-spacing: 2px;
   word-spacing: 2px;
+  color: #2E86AB;
 }
+
+.form__button {
+  margin: 30px;
+  padding: 10px 15px;
+  border-radius: 3px;
+  border: none;
+  background-color: #4d5061;
+  color: rgba(255, 255, 255, 0.79);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.331);
+  letter-spacing: 1px;
+  transition: all .3s ease-in-out;
+  outline: none;
+  border: 2px solid transparent;
+}
+
+.form__button:hover {
+  transform: translateY(-1px);
+}
+
+.form__button:focus {
+  border: 2px solid rgb(72, 137, 194);
+}
+
+.form__button:active {
+  background-color: #3b3c47;
+  transform: translateY(3px);
+}
+
+.footer {
+  text-align: center;
+}
+.footer__paragraph {
+  font-size: 14px;
+}
+/* // sprawdzx to w nawigavji na swej stronie muzycznej transform y */
+/* do imput when disable */

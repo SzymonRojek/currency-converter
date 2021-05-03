@@ -13,94 +13,101 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
-  <script defer src="./script.js" type="module"></script>
+  <script defer src="./main.js" type="module"></script>
 </head>
 
-<body>
-  <main class="main-container">
-    <form class="form">
-      <h1 class="form__heading">Currency Converter</h1>
-      <fieldset class="form__fieldset">
-        <ul class="form__list">
-          <li>
-            <label class="form__label">
-              <input class="input__actualisation js-inputActualisation" value="choose curriencies below" readonly>
-            </label>
-          </li>
-          <li>
-            <label class="form__label">
-              <span class="form__labelText">
-                Currency have*:
-              </span>
-              <div class="custom-select">
-                <select class="form__select js-selectedHave" name="currencyHave" required>
-                  <option value="search">search</option>
-                  <option value="ALL">Albanian Lek</option>
-                  <option value="GBP">British Pound</option>
-                  <option value="CZK">Czech Koruna</option>
-                  <option value="DKK">Danish Krone</option>
-                  <option value="EUR">Euro</option>
-                  <option value="DEM">German Mark</option>
-                  <option value="HUF">Hungarian Forint</option>
-                  <option value="ITL">Italian Lira</option>
-                  <option value="PL">Polish Zloty</option>
-                  <option value="RUB">Russian Rouble</option>
-                  <option value="SKK">Slovak Koruna</option>
-                  <option value="ESP">Spanish Peseta</option>
-                  <option value="US">US Dollar</option>
-                </select>
-                <span class="focus"></span>
-                <span class="custom-arrow"></span>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label class="form__label">
-              <span class="form__labelText form__labelText--middle">
-                Exchange to*:
-              </span>
-              <div class="custom-select">
-                <select class="form__select js-selectedWant" name="currencyWant">
-                  <option value="search">search</option>
-                  <option value="ALL">Albanian Lek</option>
-                  <option value="GBP">British Pound</option>
-                  <option value="CZK">Czech Koruna</option>
-                  <option value="DKK">Danish Krone</option>
-                  <option value="EUR">Euro</option>
-                  <option value="DEM">German Mark</option>
-                  <option value="HUF">Hungarian Forint</option>
-                  <option value="ITL">Italian Lira</option>
-                  <option value="PL">Polish Zloty</option>
-                  <option value="RUB">Russian Rouble</option>
-                  <option value="SKK">Slovak Koruna</option>
-                  <option value="ESP">Spanish Peseta</option>
-                  <option value="US">US Dollar</option>
-                </select>
-                <span class="focus"></span>
-                <span class="custom-arrow"></span>
-              </div>
-            </label>
-          </li>
-          <li>
-            <label class="form__label">
-              <span class="form__labelText form__labelText--last">
-                Amount*:
-              </span>
-              <div class="custom-amount">
-                <input class="form__amount js-amountInput" type="number" name="amount" min="1" step="any"
-                  placeholder="type amount" required>
-                <span class="focus"></span>
-              </div>
-            </label>
+<body class="body">
+  <div class="container">
+    <main>
+      <form class="form">
+        <h1 class="form__heading">Currency Converter</h1>
+        <fieldset class="form__fieldset">
+          <ul class="form__list">
+            <li>
+              <label class="form__label">
+                <input class="input__actualisation js-inputActualisation" value="choose curriencies below" readonly>
+              </label>
+            </li>
+            <li>
+              <label class="form__label">
+                <span class="form__labelText">
+                  Currency have*:
+                </span>
+                <div class="custom-select">
+                  <select class="form__select js-selectedHave" name="currencyHave" required>
+                    <option value="search">search</option>
+                    <option value="ALL">Albanian Lek</option>
+                    <option value="GBP">British Pound</option>
+                    <option value="CZK">Czech Koruna</option>
+                    <option value="DKK">Danish Krone</option>
+                    <option value="EUR">Euro</option>
+                    <option value="DEM">German Mark</option>
+                    <option value="HUF">Hungarian Forint</option>
+                    <option value="ITL">Italian Lira</option>
+                    <option value="PL">Polish Zloty</option>
+                    <option value="RUB">Russian Rouble</option>
+                    <option value="SKK">Slovak Koruna</option>
+                    <option value="ESP">Spanish Peseta</option>
+                    <option value="US">US Dollar</option>
+                  </select>
+                  <span class="focus"></span>
+                  <span class="custom-arrow"></span>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label class="form__label">
+                <span class="form__labelText form__labelText--middle">
+                  Exchange to*:
+                </span>
+                <div class="custom-select">
+                  <select class="form__select js-selectedWant" name="currencyWant">
+                    <option value="search">search</option>
+                    <option value="ALL">Albanian Lek</option>
+                    <option value="GBP">British Pound</option>
+                    <option value="CZK">Czech Koruna</option>
+                    <option value="DKK">Danish Krone</option>
+                    <option value="EUR">Euro</option>
+                    <option value="DEM">German Mark</option>
+                    <option value="HUF">Hungarian Forint</option>
+                    <option value="ITL">Italian Lira</option>
+                    <option value="PL">Polish Zloty</option>
+                    <option value="RUB">Russian Rouble</option>
+                    <option value="SKK">Slovak Koruna</option>
+                    <option value="ESP">Spanish Peseta</option>
+                    <option value="US">US Dollar</option>
+                  </select>
+                  <span class="focus"></span>
+                  <span class="custom-arrow"></span>
+                </div>
+              </label>
+            </li>
+            <li>
+              <label class="form__label">
+                <span class="form__labelText form__labelText--last">
+                  Amount*:
+                </span>
+                <div class="form__amount">
+                  <input class="form__amount-input js-amountInput" type="number" name="amount" min="1" step="any"
+                    placeholder="type here" required>
+                  <span class="focus"></span>
+                </div>
+              </label>
 
-          </li>
-        </ul>
-        <p class="form__paragraph">*fields requaried</p>
-      </fieldset>
-      <button type="reset">reset</button>
+            </li>
+          </ul>
+          <p class="form__paragraph">*fields requaried</p>
+        </fieldset>
+        <button class="form__button" type="reset">clear me</button>
+      </form>
+    </main>
+    <footer class="footer">
+      <p class="footer__paragraph">
+        &#169; 2021 | Coded by Szymon Rojek
+      </p>
+    </footer>
+  </div>
 
-    </form>
-  </main>
 </body>
 
 </html>
