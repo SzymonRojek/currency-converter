@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./scss/style.css">
   <script defer src="./main.js" type="module"></script>
 </head>
 
@@ -24,17 +24,17 @@
         <fieldset class="form__fieldset">
           <ul class="form__list">
             <li>
-              <label class="form__label">
-                <input class="input__actualisation js-inputActualisation" value="choose curriencies below" readonly>
+              <label>
+                <input class="form__actualisationInput js-actualisationInput" value="choose curriencies below" readonly>
               </label>
             </li>
             <li>
-              <label class="form__label">
+              <label>
                 <span class="form__labelText">
                   Currency have*:
                 </span>
-                <div class="custom-select">
-                  <select class="form__select js-selectedHave" name="currencyHave" required>
+                <div class="form__selectVisual">
+                  <select class="form__selectVisual-select js-haveInput" name="currencyHave" required>
                     <option value="search">search</option>
                     <option value="ALL">Albanian Lek</option>
                     <option value="GBP">British Pound</option>
@@ -51,17 +51,17 @@
                     <option value="US">US Dollar</option>
                   </select>
                   <span class="focus"></span>
-                  <span class="custom-arrow"></span>
+                  <span class="form__selectVisual form__selectVisual--arrow"></span>
                 </div>
               </label>
             </li>
             <li>
-              <label class="form__label">
+              <label>
                 <span class="form__labelText form__labelText--middle">
                   Exchange to*:
                 </span>
-                <div class="custom-select">
-                  <select class="form__select js-selectedWant" name="currencyWant">
+                <div class="form__selectVisual">
+                  <select class="form__selectVisual-select js-exchangeInput" name="currencyExchange">
                     <option value="search">search</option>
                     <option value="ALL">Albanian Lek</option>
                     <option value="GBP">British Pound</option>
@@ -78,7 +78,7 @@
                     <option value="US">US Dollar</option>
                   </select>
                   <span class="focus"></span>
-                  <span class="custom-arrow"></span>
+                  <span class="form__selectVisual form__selectVisual--arrow"></span>
                 </div>
               </label>
             </li>
@@ -87,8 +87,8 @@
                 <span class="form__labelText form__labelText--last">
                   Amount*:
                 </span>
-                <div class="form__amount">
-                  <input class="form__amount-input js-amountInput" type="number" name="amount" min="1" step="any"
+                <div class="form__amountVisual">
+                  <input class="form__amountVisual-input js-amountInput" type="number" name="amount" min="1" step="any"
                     placeholder="type here" required>
                   <span class="focus"></span>
                 </div>

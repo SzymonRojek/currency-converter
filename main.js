@@ -3,10 +3,12 @@
 import currenciesGroup from './curriency-object.js'; 
 
 const formElement = document.querySelector('.form');
-const currencyHave = document.querySelector('.js-selectedHave')
-const currencyWant = document.querySelector('.js-selectedWant');
-const typedAmountInput = document.querySelector('.js-amountInput');
-let inputReadonly = document.querySelector('.js-inputActualisation');
+const currencyHave = document.querySelector('.js-haveInput')
+const currencyExchange = document.querySelector('.js-exchangeInput');
+const typeAmount = document.querySelector('.js-amountInput');
+let messageActualisation = document.querySelector('.js-actualisationInput');
+
+console.log(messageActualisation);
 
 const getCurrencyHaveObject = currencies => {
   let getCurrenciesToExchange = null;
@@ -18,37 +20,39 @@ const getCurrencyHaveObject = currencies => {
   return getCurrenciesToExchange;
 } 
 
-function getInputActualisation() {
+const getInputActualisation = () => {
   const objectCurrencyHave = getCurrencyHaveObject(currenciesGroup);
-  const specificCurrencyAmount = objectCurrencyHave[currencyWant.value];
-  const calculatedCurrencyConverter = specificCurrencyAmount * Number(typedAmountInput.value);
+  const specificCurrencyAmount = objectCurrencyHave[currencyExchange.value];
+  const calculatedCurrencyConverter = specificCurrencyAmount * Number(typeAmount.value);
 
-    if ( currencyHave.value !== 'search' && currencyWant.value === 'search' ) {
-      inputReadonly.value = `Choose all curriencies` 
-    } else if ( currencyHave.value === 'search' && currencyWant.value !== 'search' ) {
-      inputReadonly.value = 'Choose all curriencies';
+    if ( currencyHave.value !== 'search' && currencyExchange.value === 'search' ) {
+      messageActualisation.value = `Choose all curriencies` 
+    } else if ( currencyHave.value === 'search' && currencyExchange.value !== 'search' ) {
+      messageActualisation.value = 'Choose all curriencies';
     } else {
-      inputReadonly.value = `1 ${ currencyHave.value } = ${ specificCurrencyAmount }`;
+      messageActualisation.value = `1 ${ currencyHave.value } = ${ specificCurrencyAmount }`;
     } 
 
-    if( currencyHave.value === currencyWant.value ) {
-      inputReadonly.value = `same curriency`;
-      typedAmountInput.setAttribute('disabled','disabled');
+    if ( currencyHave.value === currencyExchange.value ) {
+      messageActualisation.value = `same curriency`;
+      typeAmount.setAttribute('disabled','disabled');
     } else {
-      typedAmountInput.removeAttribute('disabled','disabled');
+      typeAmount.removeAttribute('disabled','disabled');
     }
   
-    if ( typedAmountInput.value ) {
-      inputReadonly.value = `${ currencyWant.value } : ${ calculatedCurrencyConverter.toFixed(2) }`;
+    if ( typeAmount.value ) {
+      messageActualisation.value = `${ currencyExchange.value } : ${ calculatedCurrencyConverter.toFixed(2) }`;
     }     
 }
 
-formElement.addEventListener('input', e => {
-  e.preventDefault(); 
+const init = () => {
+  formElement.addEventListener('input', e => {
+    e.preventDefault(); 
     getInputActualisation(); 
+  })
+}
 
-})
-  
+init();
  
 
 // element.addEventListener("change", (e) => {});
