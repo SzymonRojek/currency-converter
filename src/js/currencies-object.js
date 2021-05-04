@@ -1,5 +1,5 @@
 
-const currenciesGroup = {  
+const currenciesObject = {  
   PL  : { GBP : 0.18816, 
           EUR : 0.21758, 
           US  : 0.26389, 
@@ -172,4 +172,4 @@ const currenciesGroup = {
          },                         
 }
 
-export default currenciesGroup
+export default currenciesObject;

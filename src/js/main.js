@@ -1,68 +1,62 @@
 
 
-import currenciesGroup from './curriency-object.js'; 
+import currenciesObject from './currencies-object.js'; 
 
-const formElement = document.querySelector('.form');
-const currencyHave = document.querySelector('.js-haveInput')
-const currencyExchange = document.querySelector('.js-exchangeInput');
-const typeAmount = document.querySelector('.js-amountInput');
-let messageActualisation = document.querySelector('.js-actualisationInput');
-const resetButton = document.querySelector('.js-resetButton');
+{
+  const currencyHaveInput = document.querySelector('.js-haveInput');
+  const currencyExchangeInput = document.querySelector('.js-exchangeInput');
+  const typeAmount = document.querySelector('.js-amountInput');
+  
+  const getAvailableCurrenciesToExchange = currencies => {
+    let currenciesToExchange = null;
+      for (const key in currencies) {
+          if( currencyHaveInput.value === key ) {
+            currenciesToExchange = currencies[key];
+         }
+      }
+    return currenciesToExchange;
+  } 
 
-const getCurrencyHaveObject = currencies => {
-  let getCurrenciesToExchange = null;
-    for (const key in currencies) {
-        if( currencyHave.value === key ) {
-          getCurrenciesToExchange = currencies[key];
-       }
-    }
-  return getCurrenciesToExchange;
-} 
+  const getPriceSelectedCurrency = object => object[currencyExchangeInput.value];
 
-const getInputActualisation = () => {
-  const objectCurrencyHave = getCurrencyHaveObject(currenciesGroup);
-  const specificCurrencyAmount = objectCurrencyHave[currencyExchange.value];
-  const calculatedCurrencyConverter = specificCurrencyAmount * Number(typeAmount.value);
-
-    if ( currencyHave.value !== 'search' && currencyExchange.value === 'search' ) {
-      messageActualisation.value = `Choose all..` 
-    } else {
-      messageActualisation.value = `1 ${ currencyHave.value } = ${ specificCurrencyAmount }`;
-    } 
-
-    if ( currencyHave.value === currencyExchange.value ) {
-      messageActualisation.value = `same curriency`;
-      typeAmount.setAttribute('disabled','disabled');
-      typeAmount.placeholder = `is disabled`;
-    } else {
+  const getConvertedCurrencyAmount = object => (object[currencyExchangeInput.value] * Number(typeAmount.value)).toFixed(2);
+  
+  const updateInputReadonly = () => {
+    let readonlyInput = document.querySelector('.js-readonlyInput');
+  
+      if ( currencyHaveInput.value !== 'search' && currencyExchangeInput.value === 'search' ) {
+        readonlyInput.value = `Choose all..` 
+      } else {
+        readonlyInput.value = `1 ${ currencyHaveInput.value } = ${ getPriceSelectedCurrency(getAvailableCurrenciesToExchange(currenciesObject)) }`;
+      } 
+  
+      if ( currencyHaveInput.value === currencyExchangeInput.value ) {
+        readonlyInput.value = `same curriency`;
+        typeAmount.setAttribute('disabled','disabled');
+        typeAmount.placeholder = `is disabled`;
+      } else {
+        typeAmount.removeAttribute('disabled','disabled');
+        typeAmount.placeholder = `type here`;
+      }
+    
+      if ( typeAmount.value ) {
+        readonlyInput.value = `${ currencyExchangeInput.value } : ${ getConvertedCurrencyAmount(getAvailableCurrenciesToExchange(currenciesObject)) }`;
+      }     
+  }
+  
+  const changeTextAmountWhenDisabled = () => {
+    if ( currencyHaveInput.value === currencyExchangeInput.value ) {
       typeAmount.removeAttribute('disabled','disabled');
       typeAmount.placeholder = `type here`;
     }
-  
-    if ( typeAmount.value ) {
-      messageActualisation.value = `${ currencyExchange.value } : ${ calculatedCurrencyConverter.toFixed(2) }`;
-    }     
-}
-
-resetButton.addEventListener('click', () => {
-  if ( currencyHave.value === currencyExchange.value ) {
-    typeAmount.removeAttribute('disabled','disabled');
-    typeAmount.placeholder = `type here`;
   }
-})
-
-const init = () => {
-  formElement.addEventListener('input', e => {
-    e.preventDefault(); 
-    getInputActualisation(); 
-  })
-}
-
-init();
- 
-
-// element.addEventListener("change", (e) => {});
-// e.currentTarget => (jest elementem) bezposrednie elementy do ktortego przypisany jest event (wywoluje)
-// np. e.currentTarget.value => (metoda wartość dodana do elementu)
-// e.someTarget => przekazuje event do dzieci
-// e.target.options[e.target.selectedIndex].text
+  
+  const init = () => {
+    const formElement = document.querySelector('.form');
+    const resetButton = document.querySelector('.js-resetButton');
+      formElement.addEventListener('input', updateInputReadonly);
+      resetButton.addEventListener('click', changeTextAmountWhenDisabled);
+  }
+  
+  init();
+} 
