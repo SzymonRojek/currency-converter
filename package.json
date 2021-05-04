@@ -4,20 +4,24 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
+    "deploy": "rm -rf dist/ && npm run build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SzymonRojek/currency-converter.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Szymon Rojek",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SzymonRojek/currency-converter/issues"
   },
   "homepage": "https://github.com/SzymonRojek/currency-converter#readme",
   "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "parcel-bundler": "^1.12.5",
     "sass": "^1.32.12"
   }
 }
