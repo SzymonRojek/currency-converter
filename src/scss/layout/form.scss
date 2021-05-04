@@ -1,42 +1,5 @@
-
-html {
-  box-sizing: border-box;
-}
-
-*, ::before, ::after {
-  box-sizing: inherit;
-}
-
-.body {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  font-family: 'Antonio', sans-serif;
-  background-color: #2e86abc4;
-}
-
-.container {
-  width: 100%;
-  max-width: 550px;
-  padding: 0 20px 0 20px;
-  color: #ffffffc2;
-  z-index: 20;
-}
-
-.header {
-  &__heading {
-    padding-bottom: 10px;
-    font-size: 30px;
-    line-height: 1.5;
-    letter-spacing: 2px;
-    word-spacing: 4px;
-    text-align: center;
-  }
-}
-
 .form {
   &__fieldset {
-    background-color: rgba(238, 238, 238, 0.666);
     box-shadow: 6px 6px 19px 0px rgba(47, 50, 50, 0.54);
     border-radius: 5px;
     border: none;
@@ -52,7 +15,7 @@ html {
       height: 100%;
       top: 0;
       left: 0;
-      background-color: #cfdde3cf;
+      background-color: $bgc-primary-overlay;
       border-radius: 5px;
       position: absolute;
       z-index: -10;
@@ -69,17 +32,16 @@ html {
     margin-bottom: 50px;
     padding: 20px;
     font-size: 20px;
-    color: #3b3c47;
-    background-color: #b3c9d8c9;
+    color: $color-300;
+    background-color: $bgc-secondary;
     border: none;
     outline: none;
   }
-
   &__labelText {
     display: inline-block;
     padding-bottom: 15px;
     font-size: 15px;
-    color: #186889;
+    color: $color-200;
     letter-spacing: 1px;
     word-spacing: 3px;
     &--middle {
@@ -95,7 +57,7 @@ html {
     padding: 8px 30px 8px 10px;
     font-size: 13px;
     letter-spacing: 2px;
-    background-color: #4d5061c1;
+    background-color: $bgc-inputs;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
     border: none;
     border-radius: 3px;
@@ -110,8 +72,8 @@ html {
       left: -1px;
       right: -1px;
       bottom: -1px;
-      border: 2px solid rgb(72, 137, 194);
-      border-radius: 3px;
+      border: 1.5px solid $color-200;
+      border-radius: 4px;
       pointer-events: none;
       z-index: 1;
     }
@@ -127,7 +89,7 @@ html {
       align-items: center;
       height: 100%;
       width: 2rem;
-      background-color: #3b3c47; 
+      background-color: $bgc-details;
       pointer-events: none;
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
@@ -141,14 +103,14 @@ html {
       &::before {
         border-left: var(--size) solid transparent; 
         border-right: var(--size) solid transparent;
-        border-top: var(--size) solid rgba(255, 255, 255, 0.79);
+        border-top: var(--size) solid $color-100;
       }
     }
     &-select {
       display: inline-block;
       min-height: 35px;
       width: 100%;
-      color: rgba(255, 255, 255, 0.79);
+      color: $color-100;
       cursor: pointer;
     }
   }
@@ -158,16 +120,15 @@ html {
     &-input {
       min-height: 35px;
       width: 100%;
-      color: rgba(255, 255, 255, 0.79);
+      color: $color-100;
     }
   }
   &__paragraph {
     font-size: 10px;
     letter-spacing: 2px;
     word-spacing: 2px;
-    color: #186889;
+    color: $color-200;
   }
-
   &__item {
     margin-top: 30px;
     display: flex;
@@ -176,69 +137,24 @@ html {
         padding:10px 15px;
         border-radius: 3px;
         border: none;
-        color: #3b3c47;
-        background-color: #b3c9d8c9;;
+        color: $color-300;
+        background-color: $bgc-secondary;
         letter-spacing: 1px;
         outline: none;
         border: 2px solid transparent;
         cursor: pointer;
         transition: all .3s ease-in-out;
         &:hover {
-          color: rgba(255, 255, 255, 0.79);
+          color: $color-100;
           transform: translateY(-1px);
         }
         &:focus {
-          border: 2px solid rgb(72, 137, 194);
+          border: 2px solid $color-200;
         }
         &:active {
-          background-color: #3b3c47;
+          background-color: $bgc-details;
           transform: translateY(3px);
         }
     }
   }
 }
-
-.footer {
-  text-align: center;
-  &__paragraph {
-    padding-top: 30px;
-    font-size: 18px;
-  }
-}
-
-/* hide arrows input numbers */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  margin: 0;
-  -webkit-appearance: none;
-}
-input[type=number] {
-  -moz-appearance: textfield;
-}
-select::-ms-expand {
-  display: none;
-  background-color: #2b2e2e;
-}
-
-// styling placeholder - browsers included
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: rgba(255, 255, 255, 0.79);
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: rgba(255, 255, 255, 0.79);
-}
-:-moz-placeholder { /* Firefox 18- */
-  color:rgba(255, 255, 255, 0.79);
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: rgba(255, 255, 255, 0.79);
-}
-
-
-
-/* 
-do imput when disable 
-zmienne
-
-*/
-

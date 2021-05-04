@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100;300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./dist/css/style.css">
+  <link rel="stylesheet" href="./dist/css/main.css">
   <script defer src="./src/js/main.js" type="module"></script>
 </head>
 
@@ -94,20 +94,17 @@
                 </span>
                 <div class="form__amountVisual">
                   <input class="form__amountVisual-input js-amountInput" type="number" name="amount" min="1" step="any"
-                    placeholder="type here" required>
+                    placeholder="type here">
                   <span class="focus"></span>
                 </div>
               </label>
             </li>
             <li class="form__item">
-              <button class="form__item-button" type="reset">clear</button>
+              <button class="form__item-button js-resetButton" type="reset">clear</button>
             </li>
           </ul>
           <p class="form__paragraph">*fields requaried</p>
-
-
         </fieldset>
-
       </form>
     </main>
     <footer class="footer">

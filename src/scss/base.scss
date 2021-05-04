@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
+.body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: 'Antonio', sans-serif;
+  background-color: $bgc-body;
+}
+
+.container {
+  width: 100%;
+  max-width: 550px;
+  padding: 0 20px 0 20px;
+  color: $color-100;
+  z-index: 20;
+}
