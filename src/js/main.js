@@ -46,6 +46,7 @@ const getInputActualisation = () => {
 
 resetButton.addEventListener('click', () => {
   if ( currencyHave.value === currencyExchange.value ) {
+    typeAmount.removeAttribute('disabled','disabled');
     typeAmount.placeholder = `type here`;
   }
 })
