@@ -12,20 +12,7 @@ html {
   display: grid;
   place-items: center;
   font-family: 'Antonio', sans-serif;
-  background-color:#2E86AB;
-  background-image: url('https://www.kitco.com/news/2019-08-05/images/shutterstock_663195382-min.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  &::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #2e86abc4;
-    position: absolute;
-  }
+  background-color: #2e86abc4;
 }
 
 .container {
@@ -38,8 +25,8 @@ html {
 
 .header {
   &__heading {
-    padding: 30px;
-    font-size: 25px;
+    padding-bottom: 10px;
+    font-size: 30px;
     line-height: 1.5;
     letter-spacing: 2px;
     word-spacing: 4px;
@@ -48,14 +35,6 @@ html {
 }
 
 .form {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // padding: 15px;
-
-  
-  // background-color: #2E86AB;
-
   &__fieldset {
     background-color: rgba(238, 238, 238, 0.666);
     box-shadow: 6px 6px 19px 0px rgba(47, 50, 50, 0.54);
@@ -90,9 +69,9 @@ html {
     margin-bottom: 50px;
     padding: 20px;
     font-size: 20px;
-    border: none;
+    color: #3b3c47;
     background-color: #b3c9d8c9;
-    color: rgba(48, 44, 44, 0.79);
+    border: none;
     outline: none;
   }
 
@@ -100,24 +79,24 @@ html {
     display: inline-block;
     padding-bottom: 15px;
     font-size: 15px;
+    color: #186889;
     letter-spacing: 1px;
     word-spacing: 3px;
-    color: #186889;
     &--middle {
       margin-top: 30px;
     }
     &--last {
-      margin-top: 30px;
+      margin-top: 40px;
     }
   }
   /*  common styles for select and input number */
   &__selectVisual-select, 
   &__amountVisual-input {
-    background-color: #4d5061;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .5);
     padding: 8px 30px 8px 10px;
     font-size: 13px;
     letter-spacing: 2px;
+    background-color: #4d5061c1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
     border: none;
     border-radius: 3px;
     appearance: none;
@@ -132,7 +111,7 @@ html {
       right: -1px;
       bottom: -1px;
       border: 2px solid rgb(72, 137, 194);
-      border-radius: inherit;
+      border-radius: 3px;
       pointer-events: none;
       z-index: 1;
     }
@@ -183,35 +162,38 @@ html {
     }
   }
   &__paragraph {
-    padding-top: 8px;
     font-size: 10px;
     letter-spacing: 2px;
     word-spacing: 2px;
     color: #186889;
   }
 
-  &__button {
-    margin: 30px;
-    padding: 10px 15px;
-    border-radius: 3px;
-    border: none;
-    background-color: #4d5061;
-    color: rgba(255, 255, 255, 0.79);
-    letter-spacing: 1px;
-    transition: all .3s ease-in-out;
-    outline: none;
-    border: 2px solid transparent;
-    box-shadow: 6px 6px 19px 0px rgba(47, 50, 50, 0.54);
-    cursor: pointer;
-    &:hover {
-      transform: translateY(-1px);
-    }
-    &:focus {
-      border: 2px solid rgb(72, 137, 194);
-    }
-    &:active {
-      background-color: #3b3c47;
-      transform: translateY(3px);
+  &__item {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    &-button {
+        padding:10px 15px;
+        border-radius: 3px;
+        border: none;
+        color: #3b3c47;
+        background-color: #b3c9d8c9;;
+        letter-spacing: 1px;
+        outline: none;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        &:hover {
+          color: rgba(255, 255, 255, 0.79);
+          transform: translateY(-1px);
+        }
+        &:focus {
+          border: 2px solid rgb(72, 137, 194);
+        }
+        &:active {
+          background-color: #3b3c47;
+          transform: translateY(3px);
+        }
     }
   }
 }
@@ -219,7 +201,8 @@ html {
 .footer {
   text-align: center;
   &__paragraph {
-    font-size: 14px;
+    padding-top: 30px;
+    font-size: 18px;
   }
 }
 
@@ -258,3 +241,4 @@ do imput when disable
 zmienne
 
 */
+
