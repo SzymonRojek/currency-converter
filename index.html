@@ -21,17 +21,20 @@
 <body class="body">
   <div class="container">
     <main>
+      <header class="header">
+        <h1 class="header__heading">Currency Converter</h1>
+      </header>
       <form class="form">
-        <h1 class="form__heading">Currency Converter</h1>
+
         <fieldset class="form__fieldset">
           <ul class="form__list">
             <li>
               <label>
-                <input class="form__actualisationInput js-actualisationInput" value="choose curriencies below" readonly>
+                <input class="form__actualisationInput js-actualisationInput" value="choose currencies.." readonly>
               </label>
             </li>
             <li>
-              <label>
+              <label class="form__label">
                 <span class="form__labelText">
                   Currency have*:
                 </span>
@@ -100,7 +103,7 @@
           </ul>
           <p class="form__paragraph">*fields requaried</p>
         </fieldset>
-        <button class="form__button" type="reset">clear me</button>
+        <button class="form__button" type="reset">clear</button>
       </form>
     </main>
     <footer class="footer">

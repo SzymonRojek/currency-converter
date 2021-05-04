@@ -13,32 +13,71 @@ html {
   place-items: center;
   font-family: 'Antonio', sans-serif;
   background-color:#2E86AB;
+  background-image: url('https://www.kitco.com/news/2019-08-05/images/shutterstock_663195382-min.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #2e86abc4;
+    position: absolute;
+  }
 }
 
 .container {
   width: 100%;
   max-width: 550px;
-  margin: auto;
+  padding: 0 20px 0 20px;
   color: #ffffffc2;
+  z-index: 20;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-  background-color: #2E86AB;
+.header {
   &__heading {
     padding: 30px;
     font-size: 25px;
     line-height: 1.5;
     letter-spacing: 2px;
     word-spacing: 4px;
+    text-align: center;
   }
+}
+
+.form {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // padding: 15px;
+
+  
+  // background-color: #2E86AB;
+
   &__fieldset {
-    background-color: rgb(238, 238, 238);
-    border-radius: 3px;
+    background-color: rgba(238, 238, 238, 0.666);
+    box-shadow: 6px 6px 19px 0px rgba(47, 50, 50, 0.54);
+    border-radius: 5px;
     border: none;
+    background-image: url('https://www.researchgate.net/profile/M-Basri/publication/320925728/figure/fig3/AS:631619933192230@1527601335529/India-GDP-Growth-Interest-Rate-Forex-Reserves-Exchange-Rates-and-Current-Account.png');
+    background-position: center;
+    background-size: cover right;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 30;
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: #cfdde3cf;
+      border-radius: 5px;
+      position: absolute;
+      z-index: -10;
+    }
   }
   &__list {
     padding: 10px;
@@ -46,12 +85,13 @@ html {
   }
   &__actualisationInput {
     min-height: 20px;
-    min-width: 250px;
+    height: 80px;
+    width: 100%;
     margin-bottom: 50px;
     padding: 20px;
     font-size: 20px;
     border: none;
-    background-color: #c4d6e1;
+    background-color: #b3c9d8c9;
     color: rgba(48, 44, 44, 0.79);
     outline: none;
   }
@@ -62,7 +102,7 @@ html {
     font-size: 15px;
     letter-spacing: 1px;
     word-spacing: 3px;
-    color: #2E86AB;
+    color: #186889;
     &--middle {
       margin-top: 30px;
     }
@@ -76,6 +116,8 @@ html {
     background-color: #4d5061;
     box-shadow: 0 10px 25px rgba(0, 0, 0, .5);
     padding: 8px 30px 8px 10px;
+    font-size: 13px;
+    letter-spacing: 2px;
     border: none;
     border-radius: 3px;
     appearance: none;
@@ -83,8 +125,6 @@ html {
     -moz-appearance: none;
     -ms-appearance: none;
     outline: none;
-    font-size: 13px;
-   
     &:focus  + .focus {
       position: absolute;
       top: -1px;
@@ -93,13 +133,12 @@ html {
       bottom: -1px;
       border: 2px solid rgb(72, 137, 194);
       border-radius: inherit;
-      z-index: 10;
-      // pointer-events: none;
+      pointer-events: none;
+      z-index: 1;
     }
   }
   &__selectVisual {
     position: relative;
-    max-width: 250px;
     &--arrow {
       position: absolute;
       top: 0;
@@ -123,7 +162,7 @@ html {
       &::before {
         border-left: var(--size) solid transparent; 
         border-right: var(--size) solid transparent;
-        border-top: var(--size) solid #fff;
+        border-top: var(--size) solid rgba(255, 255, 255, 0.79);
       }
     }
     &-select {
@@ -137,7 +176,6 @@ html {
 
   &__amountVisual {
     position: relative;
-    max-width: 250px;
     &-input {
       min-height: 35px;
       width: 100%;
@@ -145,11 +183,13 @@ html {
     }
   }
   &__paragraph {
+    padding-top: 8px;
     font-size: 10px;
     letter-spacing: 2px;
     word-spacing: 2px;
-    color: #2E86AB;
+    color: #186889;
   }
+
   &__button {
     margin: 30px;
     padding: 10px 15px;
@@ -157,18 +197,19 @@ html {
     border: none;
     background-color: #4d5061;
     color: rgba(255, 255, 255, 0.79);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.331);
     letter-spacing: 1px;
     transition: all .3s ease-in-out;
     outline: none;
     border: 2px solid transparent;
+    box-shadow: 6px 6px 19px 0px rgba(47, 50, 50, 0.54);
+    cursor: pointer;
     &:hover {
       transform: translateY(-1px);
     }
-    :focus {
+    &:focus {
       border: 2px solid rgb(72, 137, 194);
     }
-    :active {
+    &:active {
       background-color: #3b3c47;
       transform: translateY(3px);
     }
@@ -217,4 +258,3 @@ do imput when disable
 zmienne
 
 */
-

@@ -24,9 +24,7 @@ const getInputActualisation = () => {
   const calculatedCurrencyConverter = specificCurrencyAmount * Number(typeAmount.value);
 
     if ( currencyHave.value !== 'search' && currencyExchange.value === 'search' ) {
-      messageActualisation.value = `Choose all curriencies` 
-    } else if ( currencyHave.value === 'search' && currencyExchange.value !== 'search' ) {
-      messageActualisation.value = 'Choose all curriencies';
+      messageActualisation.value = `Choose all..` 
     } else {
       messageActualisation.value = `1 ${ currencyHave.value } = ${ specificCurrencyAmount }`;
     } 
