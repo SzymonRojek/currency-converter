@@ -6,45 +6,48 @@ import currenciesObject from './currencies-object.js';
   const currencyHaveInput = document.querySelector('.js-haveInput');
   const currencyExchangeInput = document.querySelector('.js-exchangeInput');
   const typeAmount = document.querySelector('.js-amountInput');
-  
-  const getAvailableCurrenciesToExchange = currencies => {
+
+  const getAvailableCurrenciesToExchange = (currencies, currencyHave) => {
     let currenciesToExchange = null;
       for (const key in currencies) {
-          if( currencyHaveInput.value === key ) {
+          if( currencyHave === key ) {
             currenciesToExchange = currencies[key];
          }
       }
     return currenciesToExchange;
-  } 
+  }
 
-  const getPriceSelectedCurrency = object => object[currencyExchangeInput.value];
+  const getPriceSelectedCurrency = (currencies, currencyExchange) => currencies[currencyExchange];
+  const getConvertedCurrencyAmount = (price, amount) => (price * Number(amount)).toFixed(2);
 
-  const getConvertedCurrencyAmount = object => (object[currencyExchangeInput.value] * Number(typeAmount.value)).toFixed(2);
-  
-  const updateInputReadonly = () => {
+  const updateInputs = () => {
     let readonlyInput = document.querySelector('.js-readonlyInput');
+
+    const currenciesToExchange = getAvailableCurrenciesToExchange(currenciesObject, currencyHaveInput.value);
+    const priceForOneUnitCurrency = getPriceSelectedCurrency(currenciesToExchange, currencyExchangeInput.value);
+    const convertedCurrencyAmount = getConvertedCurrencyAmount( priceForOneUnitCurrency, typeAmount.value);
   
-      if ( currencyHaveInput.value !== 'search' && currencyExchangeInput.value === 'search' ) {
-        readonlyInput.value = `Choose all..` 
-      } else {
-        readonlyInput.value = `1 ${ currencyHaveInput.value } = ${ getPriceSelectedCurrency(getAvailableCurrenciesToExchange(currenciesObject)) }`;
-      } 
+    if ( currencyHaveInput.value !== 'search' && currencyExchangeInput.value === 'search' ) {
+      readonlyInput.value = `Choose all..` 
+    } else {
+      readonlyInput.value = `1 ${ currencyHaveInput.value } = ${ priceForOneUnitCurrency }`;
+    } 
+
+    if ( currencyHaveInput.value === currencyExchangeInput.value ) {
+      readonlyInput.value = `same curriency`;
+      typeAmount.setAttribute('disabled','disabled');
+      typeAmount.placeholder = `is disabled`;
+    } else {
+      typeAmount.removeAttribute('disabled','disabled');
+      typeAmount.placeholder = `type here`;
+    }
   
-      if ( currencyHaveInput.value === currencyExchangeInput.value ) {
-        readonlyInput.value = `same curriency`;
-        typeAmount.setAttribute('disabled','disabled');
-        typeAmount.placeholder = `is disabled`;
-      } else {
-        typeAmount.removeAttribute('disabled','disabled');
-        typeAmount.placeholder = `type here`;
-      }
-    
-      if ( typeAmount.value ) {
-        readonlyInput.value = `${ currencyExchangeInput.value } : ${ getConvertedCurrencyAmount(getAvailableCurrenciesToExchange(currenciesObject)) }`;
-      }     
+    if ( typeAmount.value ) {
+      readonlyInput.value = `${ currencyExchangeInput.value } : ${ convertedCurrencyAmount }`;
+    }     
   }
   
-  const changeTextAmountWhenDisabled = () => {
+  const changeTextAmountWhenDisabledClick = () => {
     if ( currencyHaveInput.value === currencyExchangeInput.value ) {
       typeAmount.removeAttribute('disabled','disabled');
       typeAmount.placeholder = `type here`;
@@ -54,8 +57,9 @@ import currenciesObject from './currencies-object.js';
   const init = () => {
     const formElement = document.querySelector('.form');
     const resetButton = document.querySelector('.js-resetButton');
-      formElement.addEventListener('input', updateInputReadonly);
-      resetButton.addEventListener('click', changeTextAmountWhenDisabled);
+
+    formElement.addEventListener('input', updateInputs);
+    resetButton.addEventListener('click', changeTextAmountWhenDisabledClick);
   }
   
   init();
