@@ -28,7 +28,7 @@ import currenciesObject from './currencies-object.js';
     const convertedCurrencyAmount = getConvertedCurrencyAmount( priceForOneUnitCurrency, typeAmount.value);
   
     if ( currencyHaveInput.value !== 'search' && currencyExchangeInput.value === 'search' ) {
-      readonlyInput.value = `Choose all..` 
+      readonlyInput.value = `Choose all..`;
     } else {
       readonlyInput.value = `1 ${ currencyHaveInput.value } = ${ priceForOneUnitCurrency }`;
     } 
