@@ -3,10 +3,6 @@
 import currenciesObject from './currencies-object.js'; 
 
 {
-  const currencyHaveInput = document.querySelector('.js-haveInput');
-  const currencyExchangeInput = document.querySelector('.js-exchangeInput');
-  const typeAmount = document.querySelector('.js-amountInput');
-
   const getAvailableCurrenciesToExchange = (currencies, currencyHave) => {
     let currenciesToExchange = null;
       for (const key in currencies) {
@@ -19,6 +15,10 @@ import currenciesObject from './currencies-object.js';
 
   const getPriceSelectedCurrency = (currencies, currencyExchange) => currencies[currencyExchange];
   const getConvertedCurrencyAmount = (price, amount) => (price * Number(amount)).toFixed(2);
+
+  const currencyHaveInput = document.querySelector('.js-haveInput');
+  const currencyExchangeInput = document.querySelector('.js-exchangeInput');
+  const typeAmount = document.querySelector('.js-amountInput');
 
   const updateInputs = () => {
     let readonlyInput = document.querySelector('.js-readonlyInput');
