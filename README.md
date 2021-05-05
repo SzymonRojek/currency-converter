@@ -1,12 +1,12 @@
 
-
+# Currency Converter
 
 ## 🎥  Preview site :arrow_right: [tap here](https://szymonrojek.github.io/currency-converter/)
 
 <img src="./src/images/currency.gif" width="250" height="350">
 
-## Description:
-Creating this converter was a good opportunity to think about objects. I wanted to store data inside of the object and then have the possibilities to choose data depends on the sort of currency, get a price of the currency and calulcate it by the amount given from the user. I've used ES6 and also divided JS for small functions just to keep an eye on a "single responsibility" depending on their task.
+## Project description:
+Creating this converter was a good opportunity to think about objects. I wanted to store data inside the object and then choose the data on the basis of the currency and calulcate it by the amount given from the user. I've used ES6 and also divided into small functions just to keep an eye on a "single responsibility" depending on their task.
 
 
 ## Technologies:
