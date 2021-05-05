@@ -10,11 +10,14 @@ Creating this converter was a good opportunity to think about objects. I wanted 
 
 
 ## Technologies:
-* [x] Parcel bundler
-* [x] Sass
-* [x] Flexbox
-* [x] HTML, CSS, JS+ES6
+* [x] <img src="./src/images/parcel-js.png" width="50" height="50">
+* [x]  <img src="./src/images/sass.svg" width="50" height="50">
+* [x] 
+<img src="./src/images/flex-box.png" width="50" height="50">
 
+* [x] <img src="./src/images/html.svg" width="50" height="50">
+<img src="./src/images/css.svg" width="50" height="50">
+<img src="./src/images/js.svg" width="50" height="50">
 
 ## I have used:
 - Semantic HTML
