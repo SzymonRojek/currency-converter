@@ -20,8 +20,9 @@ import currenciesObject from './currencies-object.js';
     }
   }
   
-  const displayExchangedCurrencyAmount = (currencyHaveInput, currencyExchangeInput, typeAmount) => {
+  const displayInformation = (currencyHaveInput, currencyExchangeInput, typeAmount) => {
     let readonlyInput = document.querySelector('.js-readonlyInput');
+    const labelTextAmount = document.querySelector('.js-labelText--last');
     const currenciesToExchange = getCurrenciesToExchange(currenciesObject, currencyHaveInput.value);
     const priceForOneUnitCurrency = getPriceSelectedCurrency(currenciesToExchange, currencyExchangeInput.value);
     const convertedCurrencyAmount = getConvertedCurrencyAmount( priceForOneUnitCurrency, typeAmount.value);
@@ -29,7 +30,7 @@ import currenciesObject from './currencies-object.js';
     if ( currencyHaveInput.value !== 'search' && currencyExchangeInput.value === 'search' ) {
       readonlyInput.value = `Choose all..`;
     } else {
-      readonlyInput.value = `1 ${ currencyHaveInput.value } = ${ priceForOneUnitCurrency }`;
+      readonlyInput.value = `1 ${ currencyExchangeInput.value } = ${ priceForOneUnitCurrency }`;
     } 
 
     if ( currencyHaveInput.value === currencyExchangeInput.value ) {
@@ -38,7 +39,11 @@ import currenciesObject from './currencies-object.js';
   
     if ( typeAmount.value ) {
       readonlyInput.value = `${ currencyExchangeInput.value } : ${ convertedCurrencyAmount }`;
-    }     
+    } 
+    
+    if (currencyHaveInput !== 'search') {
+      labelTextAmount.innerText = ` ${ currencyHaveInput.value }`;
+    }
   }
 
   const getConvertedCurrencyAmount = (price, amount) => (price * Number(amount)).toFixed(2);
@@ -63,7 +68,7 @@ import currenciesObject from './currencies-object.js';
     const typeAmount = document.querySelector('.js-amountInput');
 
     formElement.addEventListener('input', () => {
-      displayExchangedCurrencyAmount(currencyHaveInput, currencyExchangeInput, typeAmount);
+      displayInformation(currencyHaveInput, currencyExchangeInput, typeAmount);
       getDisabledInput(currencyHaveInput, currencyExchangeInput, typeAmount);
     });
     resetButton.addEventListener('click', () => {
