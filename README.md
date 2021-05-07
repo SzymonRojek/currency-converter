@@ -25,6 +25,7 @@ Creating this converter was a good opportunity to think about objects. I wanted 
 
 ## I have used:
 - Semantic HTML
+- BEM methodology
 - RWD
 - mobile first
 
