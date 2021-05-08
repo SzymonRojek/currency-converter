@@ -3,7 +3,7 @@
 
 ## 🎥  Preview site :arrow_right: [tap here](https://szymonrojek.github.io/currency-converter/)
 
-<img src="./src/images/currency-converter.gif" width="250" height="350">
+<img src="./src/images/currency-converter.gif" width="250" height="400">
 
 ## Project description:
 Creating this converter was a good opportunity to think about objects. I wanted to store data inside the object and then choose the data on the basis of the currency and calulcate it by the amount given from the user. I have used ES6 and also divided into small functions just to keep an eye on a "single responsibility" depending on their task.
