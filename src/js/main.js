@@ -3,6 +3,7 @@
 import currenciesObject from './currencies-object.js'; 
 
 {
+ 
   const getCurrenciesToExchange = (currencies, currencyHave) => {
     let currenciesToExchange = null;
       for (const key in currencies) {
@@ -17,15 +18,24 @@ import currenciesObject from './currencies-object.js';
 
   const getPriceSelectedCurrency = (currencies, currencyExchange) => currencies[currencyExchange];
   
-  const resetAmountInput = (currencyHaveInput, currencyExchangeInput, typeAmount, labelTextAmount) => {
+
+  const informationDisplayed = document.querySelector('.js-displayInformation');
+  const currencyHaveInput = document.querySelector('.js-haveInput');
+  const currencyExchangeInput = document.querySelector('.js-exchangeInput');
+  const labelTextAmount = document.querySelector('.js-labelText--last');
+  const typeAmount = document.querySelector('.js-amountInput');
+ 
+
+  const resetFields = () => {
     if ( currencyHaveInput.value === currencyExchangeInput.value ) {
       typeAmount.removeAttribute('disabled','disabled');
       typeAmount.placeholder = `type here`;
     }
     labelTextAmount.innerText = '';
+    informationDisplayed.innerText = `Choose currencies`;
   }
 
-  const getDisabledAmountInput = (currencyHaveInput, currencyExchangeInput, typeAmount) => {
+  const getDisabledAmountInput = () => {
     if ( currencyHaveInput.value === currencyExchangeInput.value ) {
       typeAmount.setAttribute('disabled','disabled');
       typeAmount.placeholder = `is disabled`;
@@ -35,24 +45,23 @@ import currenciesObject from './currencies-object.js';
     }
   }
   
-  const displayInformation = (currencyHaveInput, currencyExchangeInput, typeAmount, labelTextAmount) => {
-    let readonlyInput = document.querySelector('.js-readonlyInput');
+  const displayInformation = () => {
     const currenciesToExchange = getCurrenciesToExchange(currenciesObject, currencyHaveInput.value);
     const priceForOneUnitCurrency = getPriceSelectedCurrency(currenciesToExchange, currencyExchangeInput.value);
     const convertedCurrencyAmount = getConvertedCurrencyAmount( priceForOneUnitCurrency, typeAmount.value);
   
     if ( currencyHaveInput.value !== 'search' && currencyExchangeInput.value === 'search' ) {
-      readonlyInput.value = `Choose all..`;
+      informationDisplayed.innerText = `Choose all..`;
     } else {
-      readonlyInput.value = `1 ${ currencyExchangeInput.value } = ${ priceForOneUnitCurrency }`;
+      informationDisplayed.innerText = `1 ${ currencyExchangeInput.value } = ${ priceForOneUnitCurrency }`;
     } 
 
     if ( currencyHaveInput.value === currencyExchangeInput.value ) {
-      readonlyInput.value = `same curriency`;
+      informationDisplayed.innerText = `same curriency`;
     }
   
     if ( typeAmount.value ) {
-      readonlyInput.value = `${ currencyExchangeInput.value } : ${ convertedCurrencyAmount }`;
+      informationDisplayed.innerText = `${ currencyExchangeInput.value } : ${ convertedCurrencyAmount }`;
     } 
     
     if ( currencyHaveInput.value !== 'search' ) {
@@ -63,18 +72,12 @@ import currenciesObject from './currencies-object.js';
   const init = () => {
     const formElement = document.querySelector('.form');
     const resetButton = document.querySelector('.js-resetButton');
-    const currencyHaveInput = document.querySelector('.js-haveInput');
-    const currencyExchangeInput = document.querySelector('.js-exchangeInput');
-    const typeAmount = document.querySelector('.js-amountInput');
-    const labelTextAmount = document.querySelector('.js-labelText--last');
-
+  
     formElement.addEventListener('input', () => {
-      displayInformation(currencyHaveInput, currencyExchangeInput, typeAmount, labelTextAmount);
-      getDisabledAmountInput(currencyHaveInput, currencyExchangeInput, typeAmount);
+      displayInformation();
+      getDisabledAmountInput();
     });
-    resetButton.addEventListener('click', () => {
-      resetAmountInput(currencyHaveInput, currencyExchangeInput, typeAmount, labelTextAmount);
-    });
+    resetButton.addEventListener('click', resetFields);
   }
   
   init();

@@ -25,16 +25,13 @@
         <h1 class="header__heading">Currency Converter</h1>
       </header>
       <form class="form">
-
         <fieldset class="form__fieldset">
           <ul class="form__list">
-            <li>
-              <label>
-                <input class="form__readonlyInput js-readonlyInput" value="choose currencies.." readonly>
-              </label>
+            <li class="form__information">
+              <p class="form__text js-displayInformation">Choose currencies</p>
             </li>
             <li>
-              <label class="form__label">
+              <label>
                 <span class="form__labelText">
                   Currency have*:
                 </span>
@@ -115,11 +112,11 @@
                 </div>
               </label>
             </li>
-            <li class="form__item">
-              <button class="form__item-button js-resetButton" type="reset">clear</button>
-            </li>
           </ul>
-          <p class="form__paragraph">*fields requaried</p>
+          <div class="form__footer">
+            <p class="form__paragraph">*fields requaried</p>
+            <button class="form__button js-resetButton" type="reset">clear</button>
+          </div>
         </fieldset>
       </form>
     </main>

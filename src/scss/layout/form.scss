@@ -25,17 +25,18 @@
     padding: 10px;
     list-style: none;
   }
-  &__readonlyInput {
-    min-height: 20px;
+  &__information {
+    display: flex;
+    align-items: center;
     height: 80px;
     width: 100%;
     margin-bottom: 50px;
-    padding: 20px;
+    background-color: $bgc-secondary;
+    }
+  &__text {
+    padding-left: 10px;
     font-size: 20px;
     color: $color-300;
-    background-color: $bgc-secondary;
-    border: none;
-    outline: none;
   }
   &__labelText {
     display: inline-block;
@@ -129,32 +130,34 @@
     word-spacing: 2px;
     color: $color-200;
   }
-  &__item {
+  &__footer {
     margin-top: 30px;
+    padding: 10px;
     display: flex;
-    justify-content: flex-end;
-    &-button {
-        padding:10px 15px;
-        border-radius: 3px;
-        border: none;
-        color: $color-300;
-        background-color: $bgc-secondary;
-        letter-spacing: 1px;
-        outline: none;
-        border: 2px solid transparent;
-        cursor: pointer;
-        transition: all .3s ease-in-out;
-        &:hover {
-          color: $color-100;
-          transform: translateY(-1px);
-        }
-        &:focus {
-          border: 2px solid $color-200;
-        }
-        &:active {
-          background-color: $bgc-details;
-          transform: translateY(3px);
-        }
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__button {
+    padding:10px 15px;
+    border-radius: 3px;
+    border: none;
+    color: $color-300;
+    background-color: $bgc-secondary;
+    letter-spacing: 1px;
+    outline: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    &:hover {
+      color: $color-100;
+      transform: translateY(-1px);
+    }
+    &:focus {
+      border: 2px solid $color-200;
+    }
+    &:active {
+      background-color: $bgc-details;
+      transform: translateY(3px);
     }
   }
 }
