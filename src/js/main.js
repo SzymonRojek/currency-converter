@@ -57,7 +57,7 @@ import currenciesObject from './currencies-object.js';
     } 
 
     if ( currencyHaveInput.value === currencyExchangeInput.value ) {
-      informationDisplayed.innerText = `same curriency`;
+      informationDisplayed.innerText = `Same currencies`;
     }
   
     if ( typeAmount.value ) {

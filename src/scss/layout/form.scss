@@ -141,15 +141,14 @@
     padding:10px 15px;
     border-radius: 3px;
     border: none;
-    color: $color-300;
-    background-color: $bgc-secondary;
+    color: $color-100;
+    background-color: $bgc-inputs;;
     letter-spacing: 1px;
     outline: none;
     border: 2px solid transparent;
     cursor: pointer;
     transition: all .3s ease-in-out;
     &:hover {
-      color: $color-100;
       transform: translateY(-1px);
     }
     &:focus {
