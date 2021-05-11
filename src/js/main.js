@@ -1,9 +1,6 @@
-
-
 import currenciesObject from './currencies-object.js'; 
 
 {
- 
   const getCurrenciesToExchange = (currencies, currencyHave) => {
     let currenciesToExchange = null;
       for (const key in currencies) {
@@ -25,24 +22,18 @@ import currenciesObject from './currencies-object.js';
   const labelTextAmount = document.querySelector('.js-labelText--last');
   const typeAmount = document.querySelector('.js-amountInput');
  
-
   const resetFields = () => {
-    if ( currencyHaveInput.value === currencyExchangeInput.value ) {
-      typeAmount.removeAttribute('disabled','disabled');
-      typeAmount.placeholder = `type here`;
-    }
-    labelTextAmount.innerText = '';
     informationDisplayed.innerText = `Choose currencies`;
+    labelTextAmount.innerText = '';
+    typeAmount.removeAttribute('disabled','disabled');
+    typeAmount.placeholder = `type here`;
   }
 
   const getDisabledAmountInput = () => {
     if ( currencyHaveInput.value === currencyExchangeInput.value ) {
       typeAmount.setAttribute('disabled','disabled');
       typeAmount.placeholder = `is disabled`;
-    } else {
-      typeAmount.removeAttribute('disabled','disabled');
-      typeAmount.placeholder = `type here`;
-    }
+    } 
   }
   
   const displayInformation = () => {
