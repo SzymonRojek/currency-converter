@@ -34,11 +34,13 @@
   }
   &__labelText {
     display: inline-block;
-    padding-bottom: 15px;
+    padding: 8px;
+    margin-bottom: 5px;
     font-size: 15px;
     color: $color-200;
     letter-spacing: 1px;
     word-spacing: 3px;
+    background-color: $bgc-secondary;
     &--middle {
       margin-top: 30px;
     }
@@ -124,7 +126,7 @@
     align-items: center;
     height: 80px;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 35px;
     background-color: $bgc-secondary;
     }
   &__text {
@@ -134,14 +136,13 @@
   }
 
   &__footer {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   &__button {
-   
     padding:10px 15px;
     border-radius: 3px;
     border: none;
