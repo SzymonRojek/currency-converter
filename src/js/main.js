@@ -4,8 +4,7 @@ import currencies from './currencies.js';
   const displayText = document.querySelector('.js-displayText');
   const currencyFrom = document.querySelector('.js-haveInput');
   const currencyTo = document.querySelector('.js-exchangeInput');
-
-  const typeAmount = document.querySelector('.js-amountInput');
+  const amountInput = document.querySelector('.js-amountInput');
   
   const getCurrencies = currencies => {
     for (const key in currencies) {
@@ -22,14 +21,14 @@ import currencies from './currencies.js';
   const resetFields = () => {
     displayText.innerText = `Choose currencies`;
     labelTextAmount.innerText = '';
-    typeAmount.removeAttribute('disabled','disabled');
-    typeAmount.placeholder = `type here`;
+    amountInput.removeAttribute('disabled','disabled');
+    amountInput.placeholder = `type here`;
   }
 
   const getDisabledAmountInput = () => {
     if ( currencyFrom.value === currencyTo.value ) {
-      typeAmount.setAttribute('disabled','disabled');
-      typeAmount.placeholder = `is disabled`;
+      amountInput.setAttribute('disabled','disabled');
+      amountInput.placeholder = `is disabled`;
     } 
   }
 
@@ -43,7 +42,7 @@ import currencies from './currencies.js';
   const displayInformation = () => {
     const currenciesToExchange = getCurrencies(currencies);
     const bidCurrencyTo = getBid(currenciesToExchange, currencyTo.value);
-    const convertedCurrencyAmount = calculateAmount( bidCurrencyTo, typeAmount.value);
+    const convertedCurrencyAmount = calculateAmount( bidCurrencyTo, amountInput.value);
   
     currencyFrom.value !== 'search' && currencyTo.value === 'search' ? displayText.innerText = `Choose all..` : displayText.innerText = `1 ${ currencyTo.value } = ${ bidCurrencyTo }`;
    
@@ -51,7 +50,7 @@ import currencies from './currencies.js';
       displayText.innerText = `Same currencies - click clear`;
     }
   
-    if ( typeAmount.value ) {
+    if ( amountInput.value ) {
       displayText.innerText = `${ currencyTo.value } : ${ convertedCurrencyAmount }`;
     } 
   }
