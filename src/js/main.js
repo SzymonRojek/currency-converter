@@ -1,4 +1,4 @@
-import currenciesObject from './currencies-object.js'; 
+import currencies from './currencies.js'; 
 
 {
   const getCurrenciesToExchange = (currencies, currencyHave) => {
@@ -37,7 +37,7 @@ import currenciesObject from './currencies-object.js';
   }
   
   const displayInformation = () => {
-    const currenciesToExchange = getCurrenciesToExchange(currenciesObject, currencyHaveInput.value);
+    const currenciesToExchange = getCurrenciesToExchange(currencies, currencyHaveInput.value);
     const priceForOneUnitCurrency = getPriceSelectedCurrency(currenciesToExchange, currencyExchangeInput.value);
     const convertedCurrencyAmount = getConvertedCurrencyAmount( priceForOneUnitCurrency, typeAmount.value);
   
