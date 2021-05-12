@@ -5,7 +5,8 @@ import currencies from './currencies.js';
   const currencyFrom = document.querySelector('.js-haveInput');
   const currencyTo = document.querySelector('.js-exchangeInput');
   const amountInput = document.querySelector('.js-amountInput');
-  
+  const labelTextLast = document.querySelector('.js-labelText--last');
+
   const getCurrencies = currencies => {
     for (const key in currencies) {
       if( currencyFrom.value === key ) {
@@ -20,7 +21,7 @@ import currencies from './currencies.js';
   
   const resetFields = () => {
     displayText.innerText = `Choose currencies`;
-    labelTextAmount.innerText = '';
+    labelTextLast.innerText = '';
     amountInput.removeAttribute('disabled','disabled');
     amountInput.placeholder = `type here`;
   }
@@ -33,10 +34,9 @@ import currencies from './currencies.js';
   }
 
   const displayTextValueCurrencyFrom = () => {
-    const labelTextLast = document.querySelector('.js-labelText--last');
-      if ( currencyFrom.value !== 'search' ) {
-        labelTextLast.innerText = ` ${ currencyFrom.value }`;
-      }
+    if ( currencyFrom.value !== 'search' ) {
+      labelTextLast.innerText = ` ${ currencyFrom.value }`;
+    }
   }
   
   const displayInformation = () => {
