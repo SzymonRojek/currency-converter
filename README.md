@@ -17,6 +17,10 @@ Creating this converter was a good opportunity to think about objects. I wanted 
     <td><img src="./src/images/parcelJs-icon.png" width="50" height="50"></td>
     <td><img src="./src/images/sass-icon.svg" width="50" height="50"></td>
     <td><img src="./src/images/flexbox-icon.png" width="50" height="50"></td>
+  </tr>
+</table>
+<table>
+  <tr>
     <td><img src="./src/images/html-icon.svg" width="50" height="50"></td>
     <td><img src="./src/images/css-icon.svg" width="50" height="50"> </td>
     <td><img src="./src/images/js-icon.svg" width="50" height="50"></td>
