@@ -1,7 +1,7 @@
 import currencies from './currencies.js'; 
 
 {
-  const displayText = document.querySelector('.js-displayText');
+  const paragraphText = document.querySelector('.js-paragraphText');
   const currencyFrom = document.querySelector('.js-haveInput');
   const currencyTo = document.querySelector('.js-exchangeInput');
   const amountInput = document.querySelector('.js-amountInput');
@@ -20,7 +20,7 @@ import currencies from './currencies.js';
   const getBid = (currencies, currencyTo) => currencies[currencyTo];
   
   const resetFields = () => {
-    displayText.innerText = `Choose currencies`;
+    paragraphText.innerText = `Choose currencies`;
     labelTextLast.innerText = '';
     amountInput.removeAttribute('disabled','disabled');
     amountInput.placeholder = `type here`;
@@ -39,7 +39,11 @@ import currencies from './currencies.js';
     }
   }
   
-  const displayInformation = text => {
+  const displayTextInformation = text => {
+    paragraphText.innerText = getTextInformation(text);
+  }
+
+  const getTextInformation = text => {
     const currenciesToExchange = getCurrencies(currencies);
     const bidCurrencyTo = getBid(currenciesToExchange, currencyTo.value);
     const calculatedCurrencyAmount = calculateAmount( bidCurrencyTo, amountInput.value);
@@ -54,7 +58,7 @@ import currencies from './currencies.js';
       text = `${ currencyTo.value } : ${ calculatedCurrencyAmount }`;
     } 
 
-    return displayText.innerText = text;
+    return text;
   }
 
   const init = () => {
@@ -62,7 +66,7 @@ import currencies from './currencies.js';
     const resetButton = document.querySelector('.js-resetButton');
   
     formElement.addEventListener('input', () => {
-      displayInformation();
+      displayTextInformation();
       getDisabledAmountInput();
       displayTextValueCurrencyFrom();
     });
