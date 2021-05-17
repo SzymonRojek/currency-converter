@@ -7,30 +7,25 @@ import currencies from './currencies.js';
   const amountInput = document.querySelector('.js-amountInput');
   const labelTextLast = document.querySelector('.js-labelText--last');
 
-  const getCurrencies = currencies => {
-    for (const key in currencies) {
-      if( currencyFrom.value === key ) {
-        return currencies[key];
-      }
-    }
-  }
+  const getCurrencies = currencies => currencies[currencyFrom.value];
 
   const calculateAmount = (bid, amountTyped) => (bid * Number(amountTyped)).toFixed(2);
 
   const getBid = (currencies, currencyTo) => currencies[currencyTo];
   
   const resetFields = () => {
-    paragraphText.innerText = `Choose currencies`;
     labelTextLast.innerText = '';
     amountInput.removeAttribute('disabled','disabled');
     amountInput.placeholder = `type here`;
+    paragraphText.innerText = `Choose currencies`;
   }
 
   const getDisabledAmountInput = () => {
     if ( currencyFrom.value === currencyTo.value ) {
       amountInput.setAttribute('disabled','disabled');
       amountInput.placeholder = `is disabled`;
-    } 
+      paragraphText.innerText = `Same currencies - click clear`;
+    }
   }
 
   const displayTextValueCurrencyFrom = () => {
@@ -38,27 +33,27 @@ import currencies from './currencies.js';
       labelTextLast.innerText = ` ${ currencyFrom.value }`;
     }
   }
-  
-  const displayTextInformation = text => {
-    paragraphText.innerText = getTextInformation(text);
-  }
-
-  const getTextInformation = text => {
+ 
+  const getTextInformation = () => {
     const currenciesToExchange = getCurrencies(currencies);
     const bidCurrencyTo = getBid(currenciesToExchange, currencyTo.value);
     const calculatedCurrencyAmount = calculateAmount( bidCurrencyTo, amountInput.value);
-  
-    currencyFrom.value !== 'search' && currencyTo.value === 'search' ? text = `Choose all..` : text = `1 ${ currencyTo.value } = ${ bidCurrencyTo }`;
-   
-    if ( currencyFrom.value === currencyTo.value ) {
-      text = `Same currencies - click clear`;
-    }
-  
-    if ( amountInput.value ) {
-      text = `${ currencyTo.value } : ${ calculatedCurrencyAmount }`;
+ 
+    if (currencyFrom.value !== 'search' && currencyTo.value === 'search' ) {
+      return `All fields required`;
     } 
 
-    return text;
+    if (currencyFrom.value !== 'search' && currencyTo.value !== 'search' && amountInput.value === '') {
+      return `1 ${ currencyTo.value } = ${ bidCurrencyTo}`;
+    }
+
+    if ( amountInput.value ) {
+     return  `${ currencyTo.value } : ${ calculatedCurrencyAmount }`;
+    }
+  }
+
+  const displayTextInformation = () => {
+    paragraphText.innerText = getTextInformation();
   }
 
   const init = () => {
@@ -70,9 +65,9 @@ import currencies from './currencies.js';
       getDisabledAmountInput();
       displayTextValueCurrencyFrom();
     });
-    
+
     resetButton.addEventListener('click', resetFields);
   }
-  
+
   init();
-} 
+}
